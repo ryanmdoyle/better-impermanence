@@ -39,7 +39,7 @@ export default function App() {
   console.log(errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} css={form}>
+    <form onSubmit={handleSubmit(onSubmit)} css={form} name='contact' method='POST' data-netlify='true' data-netlify-honeypot="bot-field" netlify>
       <label htmlFor='name'>Name</label>
       <input type="text" placeholder="Name" name="name" ref={register({ required: true })} />
 
@@ -48,7 +48,7 @@ export default function App() {
 
       <label htmlFor='message'>Message</label>
       <textarea name="message" ref={register} />
-
+      <input type="hidden" name="form-name" value="contact" />
       <input type="submit" />
     </form>
   );
