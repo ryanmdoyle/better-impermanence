@@ -2,8 +2,6 @@ import React from 'react';
 import { css } from '@emotion/core'
 import { useForm } from 'react-hook-form';
 
-import contactEmail from '../pages/api/contactemail';
-
 const form = css`
   width: 100%;
   display: flex;
@@ -35,7 +33,6 @@ const form = css`
 export default function App() {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
-    contactEmail(data);
     console.log(data)
 
   };

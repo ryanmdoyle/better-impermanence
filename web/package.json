@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build-netlify": "next build && next exports"
+    "build-netlify": "next build && next export"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
