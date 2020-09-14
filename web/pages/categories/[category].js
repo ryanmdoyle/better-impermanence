@@ -1,0 +1,38 @@
+import React from 'react';
+
+import { getPostsByCategory, getCategories } from '../../lib/queries';
+
+
+const category = ({ posts, categories, context }) => {
+  const titleString = context.category
+  const title = titleString.charAt(0).toUpperCase() + titleString.slice(1);
+  return (
+    <div>
+      <h2>{title}</h2>
+      {posts.length === 0 && <p>Currently there are no posts in the {title} category!</p>}
+    </div>
+  );
+};
+
+export async function getStaticProps(context) {
+  const posts = await getPostsByCategory(context.params.slug)
+  const categories = await getCategories()
+  return {
+    props: { posts: posts, categories: categories, context: context.params }
+  }
+}
+
+export async function getStaticPaths() {
+  const categories = await getCategories()
+  const paths = []
+  categories.forEach(category => {
+    paths.push({
+      params: {
+        category: category.title.toLowerCase(),
+      }
+    })
+  })
+  return { paths: paths, fallback: false }
+}
+
+export default category;
