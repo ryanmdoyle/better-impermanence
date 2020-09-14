@@ -32,11 +32,6 @@ const form = css`
 
 export default function App() {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => {
-    console.log(data)
-
-  };
-  console.log(errors);
 
   return (
     <form css={form} name='contact' method='POST' data-netlify='true' data-netlify-honeypot="bot-field" action='formSuccess'>

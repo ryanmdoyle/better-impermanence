@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { getPostsByCategory, getCategories } from '../../lib/queries';
+import { getPostsByCategory, getCategories, getAuthors } from '../../lib/queries';
 
 
-const category = ({ posts, categories, context }) => {
+const category = ({ posts, categories, context, author }) => {
   const titleString = context.category
   const title = titleString.charAt(0).toUpperCase() + titleString.slice(1);
   return (
@@ -22,8 +22,9 @@ const category = ({ posts, categories, context }) => {
 export async function getStaticProps(context) {
   const posts = await getPostsByCategory(context.params.slug)
   const categories = await getCategories()
+  const authors = await getAuthors();
   return {
-    props: { posts: posts, categories: categories, context: context.params }
+    props: { posts: posts, categories: categories, context: context.params, author: authors[0], }
   }
 }
 

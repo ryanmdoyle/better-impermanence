@@ -3,9 +3,9 @@ import Head from 'next/head'
 import BlockContent from '@sanity/block-content-to-react';
 
 import BlogDate from '../../components/styled/BlogDate';
-import { getPostBySlug, getPosts, getCategories } from '../../lib/queries';
+import { getPostBySlug, getPosts, getCategories, getAuthors } from '../../lib/queries';
 
-const post = ({ post, categories }) => {
+const post = ({ post, categories, author }) => {
   const { title, publishedAt, body } = post
   return (
     <div>
@@ -23,8 +23,9 @@ const post = ({ post, categories }) => {
 export async function getStaticProps(context) {
   const post = await getPostBySlug(context.params.slug)
   const categories = await getCategories()
+  const authors = await getAuthors();
   return {
-    props: { post: post[0], categories: categories }
+    props: { post: post[0], categories: categories, author: authors[0] }
   }
 }
 

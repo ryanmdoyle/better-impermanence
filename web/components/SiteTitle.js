@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 import { css } from '@emotion/core';
 
 const siteTitle = css`
@@ -21,8 +22,12 @@ const siteTitle = css`
 const SiteTitle = ({ children, subtitle }) => {
   return (
     <div css={siteTitle}>
-      <h1 className='title'>{children}</h1>
-      <span>{subtitle}</span>
+      <Link href='/'>
+        <a>
+          <h1 className='title'>{children}</h1>
+        </a>
+      </Link>
+      {subtitle && <span>{subtitle}</span>}
     </div>
   );
 };

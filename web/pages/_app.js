@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout categories={pageProps.categories}>
+    <Layout categories={pageProps.categories} author={pageProps.author}>
       <Component {...pageProps} />
     </Layout>
   )

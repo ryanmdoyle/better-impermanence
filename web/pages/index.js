@@ -4,7 +4,7 @@ import Link from 'next/link'
 import BlockContent from '@sanity/block-content-to-react';
 
 import BlogDate from '../components/styled/BlogDate';
-import { getCategories, getPosts } from '../lib/queries';
+import { getCategories, getPosts, getAuthors } from '../lib/queries';
 
 export default function Home(props) {
   return (
@@ -30,7 +30,9 @@ export async function getStaticProps() {
   const props = {}
   const cats = await getCategories()
   const posts = await getPosts()
+  const authors = await getAuthors();
   props.categories = cats
   props.posts = posts
+  props.author = authors[0]
   return { props };
 }

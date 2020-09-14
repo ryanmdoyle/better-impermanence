@@ -26,6 +26,7 @@ export async function getStaticProps() {
     props: {
       author: authors[0],
       categories: categories,
+      author: authors[0],
     }
   }
 }

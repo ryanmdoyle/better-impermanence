@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import BlockContent from '@sanity/block-content-to-react';
 import { useRouter } from 'next/router'
 import { css } from '@emotion/core';
 
@@ -19,7 +20,7 @@ const aboutSide = css`
   }
 `
 
-const AboutCard = () => {
+const AboutCard = ({ author }) => {
   const { pathname } = useRouter();
   const onAbout = pathname === '/about'
   return (
@@ -30,7 +31,7 @@ const AboutCard = () => {
       {!onAbout && (
         <>
           <h3>Hi, I'm Alissa</h3>
-          <p>Here is some random shit about me that you will see on every page in case you care.</p>
+          <BlockContent blocks={author.miniBio} />
           <Link href='/about'>
             <a css={css`color: gray;align-self: flex-end; margin-right: 1rem;`}>Read more...</a>
           </Link>

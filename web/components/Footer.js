@@ -17,10 +17,10 @@ const footer = css`
 
 `
 
-const Footer = ({ categories }) => {
+const Footer = ({ categories, author }) => {
   return (
     <div css={footer}>
-      <AboutCard />
+      <AboutCard author={author} />
       <Categories categories={categories} />
     </div>
   );

@@ -53,21 +53,21 @@ const main = css`
 `
 
 
-const Layout = ({ children, categories }) => {
+const Layout = ({ children, categories, author }) => {
   return (
     <div css={background}>
       <div css={inner}>
-        <SiteTitle subtitle='Some random subtitle about something insightful and neat.'>Better Impermanence</SiteTitle>
+        <SiteTitle subtitle={null}>Better Impermanence</SiteTitle>
         <Nav></Nav>
         <main css={main}>
           <section className='content'>
             {children}
           </section>
           <section className='sidebar'>
-            <Sidebar categories={categories} />
+            <Sidebar categories={categories} author={author} />
           </section>
           <section className='footer'>
-            <Footer categories={categories} />
+            <Footer categories={categories} author={author} />
           </section>
         </main>
       </div>

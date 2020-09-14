@@ -2,9 +2,9 @@ import React from 'react';
 import Head from 'next/head'
 
 import ContactForm from '../components/ContactForm';
-import { getCategories, getPosts } from '../lib/queries';
+import { getCategories, getAuthors, author } from '../lib/queries';
 
-const contact = () => {
+const contact = (props) => {
   return (
     <div>
       <Head>
@@ -21,7 +21,9 @@ export default contact;
 
 export async function getStaticProps() {
   const props = {}
+  const authors = await getAuthors();
   const cats = await getCategories()
   props.categories = cats
+  props.author = authors[0]
   return { props };
 }

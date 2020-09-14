@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head'
 
-import { getCategories, getPosts } from '../lib/queries';
+import { getCategories, getAuthors } from '../lib/queries';
 
-const formSuccess = () => {
+const formSuccess = (props) => {
   return (
     <div>
       <Head>
@@ -23,6 +23,8 @@ export default formSuccess;
 export async function getStaticProps() {
   const props = {}
   const cats = await getCategories()
+  const authors = await getAuthors();
   props.categories = cats
+  props.author = authors[0]
   return { props };
 }
