@@ -31,7 +31,7 @@ const AboutCard = ({ author }) => {
       {!onAbout && (
         <>
           <h3>Hi, I'm Alissa</h3>
-          <BlockContent blocks={author.miniBio} />
+          {author.minBio && <BlockContent blocks={author.miniBio} />}
           <Link href='/about'>
             <a css={css`color: gray;align-self: flex-end; margin-right: 1rem;`}>Read more...</a>
           </Link>
