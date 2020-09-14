@@ -26,15 +26,11 @@ const AboutCard = ({ author }) => {
   return (
     <div css={aboutSide}>
       <div className='image-container'>
-        <img src='/alissa.png'></img>
+        <img src='/alissa-beach.png'></img>
       </div>
       {!onAbout && (
         <>
-          <h3>Hi, I'm Alissa</h3>
           {author.minBio && <BlockContent blocks={author.miniBio} />}
-          <Link href='/about'>
-            <a css={css`color: gray;align-self: flex-end; margin-right: 1rem;`}>Read more...</a>
-          </Link>
         </>
       )}
     </div>
