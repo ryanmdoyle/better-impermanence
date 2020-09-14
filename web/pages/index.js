@@ -9,6 +9,10 @@ import { getCategories, getPosts } from '../lib/queries';
 export default function Home(props) {
   return (
     <div>
+      <Head>
+        <title>Better Impermanence - Blog</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       {props.posts.map(post => (
         <div key={post._id}>
           <Link href={`/post/${post.slug.current}`}>

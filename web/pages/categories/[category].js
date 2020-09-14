@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 
 import { getPostsByCategory, getCategories } from '../../lib/queries';
 
@@ -8,6 +9,10 @@ const category = ({ posts, categories, context }) => {
   const title = titleString.charAt(0).toUpperCase() + titleString.slice(1);
   return (
     <div>
+      <Head>
+        <title>Better Impermanence - {title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h2>{title}</h2>
       {posts.length === 0 && <p>Currently there are no posts in the {title} category!</p>}
     </div>

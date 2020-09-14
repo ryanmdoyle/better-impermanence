@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head'
 import BlockContent from '@sanity/block-content-to-react';
 
 import BlogDate from '../../components/styled/BlogDate';
@@ -8,6 +9,10 @@ const post = ({ post, categories }) => {
   const { title, publishedAt, body } = post
   return (
     <div>
+      <Head>
+        <title>Better Impermanence - {title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h2>{title}</h2>
       <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
       <BlockContent blocks={body} />

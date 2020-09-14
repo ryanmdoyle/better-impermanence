@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head'
 import BlockContent from '@sanity/block-content-to-react';
 
 import { getAuthors, getCategories } from '../lib/queries';
@@ -6,6 +7,10 @@ import { getAuthors, getCategories } from '../lib/queries';
 const about = ({ author, categories }) => {
   return (
     <div>
+      <Head>
+        <title>Better Impermanence - About</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h2>About Me</h2>
       <BlockContent blocks={author.bio} />
     </div>
