@@ -37,17 +37,17 @@ const Nav = () => {
       <ul css={list}>
         <li>
           <Link href='/'>
-            <a>Blog</a>
+            <a css={css`color: var(--black);text-decoration: none;`}>Blog</a>
           </Link>
         </li>
         <li>
           <Link href='/about'>
-            <a>About Me</a>
+            <a css={css`color: var(--black);text-decoration: none;`}>About Me</a>
           </Link>
         </li>
         <li>
           <Link href='/contact'>
-            <a>Contact</a>
+            <a css={css`color: var(--black);text-decoration: none;`}>Contact</a>
           </Link>
         </li>
       </ul>

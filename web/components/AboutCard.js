@@ -30,7 +30,7 @@ const AboutCard = ({ author }) => {
       </div>
       {!onAbout && (
         <>
-          {author.minBio && <BlockContent blocks={author.miniBio} />}
+          <BlockContent blocks={author.miniBio ? author.miniBio : ''} />
         </>
       )}
     </div>

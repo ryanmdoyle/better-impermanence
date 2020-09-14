@@ -23,7 +23,7 @@ const SiteTitle = ({ children, subtitle }) => {
   return (
     <div css={siteTitle}>
       <Link href='/'>
-        <a>
+        <a css={css`color: var(--black);text-decoration: none;`}>
           <h1 className='title'>{children}</h1>
         </a>
       </Link>
