@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getCategories, getPosts } from '../lib/queries';
+
 const formSuccess = () => {
   return (
     <div>
@@ -12,3 +14,10 @@ const formSuccess = () => {
 };
 
 export default formSuccess;
+
+export async function getStaticProps() {
+  const props = {}
+  const cats = await getCategories()
+  props.categories = cats
+  return { props };
+}

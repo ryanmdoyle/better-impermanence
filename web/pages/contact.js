@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ContactForm from '../components/ContactForm';
+import { getCategories, getPosts } from '../lib/queries';
 
 const contact = () => {
   return (
@@ -12,3 +13,10 @@ const contact = () => {
 };
 
 export default contact;
+
+export async function getStaticProps() {
+  const props = {}
+  const cats = await getCategories()
+  props.categories = cats
+  return { props };
+}

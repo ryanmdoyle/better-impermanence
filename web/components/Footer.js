@@ -8,6 +8,12 @@ const footer = css`
   width: 100%;
   min-height: 300px;
   display: flex;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    .about, .categories {
+      width: 100%;
+    }
+  }
 
 `
 
