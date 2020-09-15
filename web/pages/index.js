@@ -19,7 +19,6 @@ export default function Home(props) {
           </Link>
           <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
           <BlockContentSerialized blocks={post.body} />
-          <div>{JSON.stringify(post)}</div>
         </div>
       ))}
     </div>
