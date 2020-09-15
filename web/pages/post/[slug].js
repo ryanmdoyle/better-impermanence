@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head'
-import BlockContent from '@sanity/block-content-to-react';
 
 import BlogDate from '../../components/styled/BlogDate';
+import BlockContentSerialized from '../../components/BlockContentSerialized';
 import { getPostBySlug, getPosts, getCategories, getAuthors } from '../../lib/queries';
 
 const post = ({ post, categories, author }) => {
@@ -15,7 +15,7 @@ const post = ({ post, categories, author }) => {
       </Head>
       <h2>{title}</h2>
       <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
-      <BlockContent blocks={body} />
+      <BlockContentSerialized blocks={body} />
     </div>
   );
 };

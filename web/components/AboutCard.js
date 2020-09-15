@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import BlockContent from '@sanity/block-content-to-react';
 import { useRouter } from 'next/router'
 import { css } from '@emotion/core';
+
+import BlockContentSerialized from '../components/BlockContentSerialized';
 
 const aboutSide = css`
   display: flex;
@@ -30,7 +31,7 @@ const AboutCard = ({ author }) => {
       </div>
       {!onAbout && (
         <>
-          <BlockContent blocks={author.miniBio ? author.miniBio : ''} />
+          <BlockContentSerialized blocks={author.miniBio ? author.miniBio : ''} />
         </>
       )}
     </div>

@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import client from '../lib/sanity';
 import Link from 'next/link'
-import BlockContent from '@sanity/block-content-to-react';
+import BlockContentSerialized from '../components/BlockContentSerialized';
 
 import BlogDate from '../components/styled/BlogDate';
 import { getCategories, getPosts, getAuthors } from '../lib/queries';
@@ -19,7 +18,8 @@ export default function Home(props) {
             <h2>{post.title}</h2>
           </Link>
           <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
-          <BlockContent blocks={post.body} />
+          <BlockContentSerialized blocks={post.body} />
+          <div>{JSON.stringify(post)}</div>
         </div>
       ))}
     </div>
