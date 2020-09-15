@@ -19,7 +19,7 @@ export default {
     },
     {
       name: 'image',
-      title: 'Image',
+      title: 'Featured Image',
       type: 'image',
       options: {
         hotspot: true
@@ -28,15 +28,7 @@ export default {
     {
       name: 'bio',
       title: 'Bio',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
-          lists: []
-        }
-      ]
+      type: 'blockContent'
     },
     {
       name: 'miniBio',

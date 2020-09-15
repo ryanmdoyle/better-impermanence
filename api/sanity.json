@@ -14,8 +14,7 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/dashboard",
-    "dashboard-widget-netlify",
-    "google-analytics"
+    "dashboard-widget-netlify"
   ],
   "env": {
     "development": {
