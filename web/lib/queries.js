@@ -26,6 +26,11 @@ export const getCategories = async () => {
 }
 
 export const getAuthors = async () => {
+  const authors = '*[_type == "author"]'
+  return await client.fetch(authors)
+}
+
+export const getAuthorBio = async () => {
   const authors = '*[_type == "author"]{bio[]{..., "asset":asset->}}'
   return await client.fetch(authors)
 }

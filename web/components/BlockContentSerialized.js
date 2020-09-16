@@ -17,7 +17,6 @@ const imageContainer = css`
 const serializers = {
   marks: {
     link: ({ mark, children }) => {
-      console.log(mark, children)
       const { blank, href } = mark
       return blank ?
         <a href={href} target="_blank" rel="noopener">{children}</a>

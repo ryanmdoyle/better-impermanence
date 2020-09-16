@@ -13,7 +13,7 @@ const background = css`
 `
 
 const inner = css`
-  max-width: 1400px;
+  max-width: 1200px;
   min-height: 100vh;
   margin: auto;
   box-shadow: 0 0px 10px rgba(0,0,0,0.25), 0 10px 5px rgba(0,0,0,0.5);

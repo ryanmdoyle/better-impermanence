@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { css } from '@emotion/core';
 
@@ -24,16 +23,14 @@ const aboutSide = css`
 const AboutCard = ({ author }) => {
   const { pathname } = useRouter();
   const onAbout = pathname === '/about'
+  if (onAbout) return null;
+  console.log(author)
   return (
     <div css={aboutSide}>
       <div className='image-container'>
         <img src='/alissa-beach.png'></img>
       </div>
-      {!onAbout && (
-        <>
-          <BlockContentSerialized blocks={author.miniBio ? author.miniBio : ''} />
-        </>
-      )}
+      <BlockContentSerialized blocks={author.miniBio ? author.miniBio : ''} />
     </div>
   );
 };
