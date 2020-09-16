@@ -58,7 +58,7 @@ a:hover {
 
 @media (max-width: 900px) {
   html { 
-    font-size: 80%;
+    font-size: 110%;
   }
   h1, h2, h3, h4, h5 {
     margin: 1.75rem 0 1.05rem;
