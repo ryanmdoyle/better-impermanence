@@ -29,7 +29,7 @@ const serializers = {
       const { url, originalFilename } = node?.asset;
       return (
         <div css={imageContainer}>
-          <img src={url} alt={originalFilename} width='100%' height='auto'></img>
+          <img src={url} alt={originalFilename} width='100%'></img>
         </div>
       )
     }
