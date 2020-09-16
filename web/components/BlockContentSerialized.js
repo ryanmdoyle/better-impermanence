@@ -9,8 +9,12 @@ const imageContainer = css`
   justify-content: center;
   align-content: center;
   margin: 1rem 0;
-  img {
+  .img-wrapper {
     max-width: 500px;
+  }
+  img {
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -29,7 +33,9 @@ const serializers = {
       const { url, originalFilename } = node?.asset;
       return (
         <div css={imageContainer}>
-          <img src={url} alt={originalFilename} width='100%'></img>
+          <div className='img-wrapper'>
+            <img src={url} alt={originalFilename}></img>
+          </div>
         </div>
       )
     }
