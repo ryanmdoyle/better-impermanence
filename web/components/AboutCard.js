@@ -24,7 +24,6 @@ const AboutCard = ({ author }) => {
   const { pathname } = useRouter();
   const onAbout = pathname === '/about'
   if (onAbout) return null;
-  console.log(author)
   return (
     <div css={aboutSide}>
       <div className='image-container'>
