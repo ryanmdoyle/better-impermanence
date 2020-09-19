@@ -19,7 +19,7 @@ const list = css`
   align-items: center;
   justify-content: center;
   li {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     height: 100%;
     width: 150px;
     display: flex;
@@ -28,6 +28,9 @@ const list = css`
     span {
       display: block;
     }
+  }
+  @media (max-width: 900px) {
+    font-size: 1.25rem;
   }
 `
 

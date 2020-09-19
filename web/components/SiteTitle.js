@@ -17,6 +17,16 @@ const siteTitle = css`
     margin-bottom: 0.5rem;
     text-transform: lowercase;
   }
+
+  @media (max-width: 900px) {
+    height: 100px;
+    .title { font-size: 2.25rem; }
+  }
+
+  @media (max-width: 500px) {
+    height: 100px;
+    .title { font-size: 1.75rem; }
+  }
 `
 
 const SiteTitle = ({ children, subtitle }) => {

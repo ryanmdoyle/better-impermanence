@@ -3,9 +3,12 @@
 :root {
   --blue: #0367A6;
   --black: #333;
+  --break: 900px;
 }
 
-html {font-size: 100%;} /*16px*/
+html {
+  font-size: 100%;
+} /*16px*/
 
 body {
   padding: 0;
@@ -57,20 +60,26 @@ a:hover {
 }
 
 @media (max-width: 900px) {
-  html { 
-    font-size: 80%;
-  }
   h1, h2, h3, h4, h5 {
-    margin: 1.75rem 0 1.05rem;
+    margin: 1em 0 1.05em;
     font-family: 'Nixie One', sans-serif;
     font-weight: 400;
     line-height: 1.15;
   }
-  p {
-    font-size: 125%;
-    margin: 0;
+
+  h1 {
+    margin-top: 0;
+    font-size: 2.15em;
   }
-  a {
-    font-size: 125%;
-  }
-}
+  
+  h2 {font-size: 1.85em;}
+  
+  h3 {font-size: 1.5em;}
+  
+  h4 {font-size: 1.25em;}
+  
+  h5 {font-size: 1.15em;}
+
+  p, li { font-size: 115%;}
+
+} 
