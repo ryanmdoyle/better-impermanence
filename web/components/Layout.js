@@ -21,7 +21,7 @@ const inner = css`
 `
 const main = css`
   width: 100%;
-  padding: 2rem;
+  padding: 0 2rem 2rem;
   display: flex;
   .content {
     width: 80%;

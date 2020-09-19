@@ -1,18 +1,31 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import BlockContentSerialized from '../components/BlockContentSerialized';
 
+import BlockContentSerialized from '../components/BlockContentSerialized';
 import BlogDate from '../components/styled/BlogDate';
+import PostPreview from '../components/PostPreview';
 import { getCategories, getPosts, getAuthors } from '../lib/queries';
 
 export default function Home(props) {
+  const { posts } = props;
+  const fullPosts = []; // first 3
+  const previewPosts = []; // next 7
+  posts.forEach((post, index) => {
+    if (index <= 2) {
+      fullPosts.push(post);
+    }
+    if (index > 2 && index <= 10) {
+      previewPosts.push(post);
+    }
+  })
+
   return (
     <div>
       <Head>
         <title>Better Impermanence - Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {props.posts.map(post => (
+      {fullPosts.map(post => (
         <div key={post._id}>
           <Link href={`/post/${post.slug.current}`}>
             <h2>{post.title}</h2>
@@ -20,6 +33,9 @@ export default function Home(props) {
           <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
           <BlockContentSerialized blocks={post.body} />
         </div>
+      ))}
+      {previewPosts && previewPosts.map(post => (
+        <PostPreview post={post} />
       ))}
     </div>
   )

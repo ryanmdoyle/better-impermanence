@@ -20,6 +20,8 @@ const footer = css`
 const Footer = ({ categories, author }) => {
   return (
     <div css={footer}>
+      <br></br>
+      <hr css={css`width: 100%;`}></hr>
       <AboutCard author={author} />
       <Categories categories={categories} />
     </div>
