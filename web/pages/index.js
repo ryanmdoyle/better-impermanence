@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import BlockContentSerialized from '../components/BlockContentSerialized';
 import BlogDate from '../components/styled/BlogDate';
+import BlogCategories from '../components/styled/BlogCategories';
 import PostPreview from '../components/PostPreview';
 import { getCategories, getPosts, getAuthors } from '../lib/queries';
 
@@ -18,7 +19,7 @@ export default function Home(props) {
       previewPosts.push(post);
     }
   })
-  console.log(posts)
+
   return (
     <div>
       <Head>
@@ -31,6 +32,7 @@ export default function Home(props) {
             <h2>{post.title}</h2>
           </Link>
           <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
+          <BlogCategories categories={post.categories} />
           <BlockContentSerialized blocks={post.body} />
         </div>
       ))}
