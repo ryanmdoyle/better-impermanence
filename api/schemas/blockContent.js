@@ -26,9 +26,13 @@ export default {
         { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
-        { title: 'Quote', value: 'blockquote' }
+        { title: 'Quote', value: 'blockquote' },
+        { title: 'Centered', value: 'centered' }
       ],
-      lists: [{ title: 'Bullet', value: 'bullet' }],
+      lists: [
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Numbered', value: 'number' }
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -61,7 +65,31 @@ export default {
     // as a block type.
     {
       type: 'image',
-      options: { hotspot: true }
+      options: { hotspot: true },
+      fields: [
+        {
+          type: 'text',
+          name: 'caption',
+          title: 'Caption',
+          description: 'A caption/title for the image that will be displayed, centered, under the photo',
+          options: {
+            isHighlighted: true
+          }
+        },
+        {
+          type: 'text',
+          name: 'alt',
+          title: 'Alternative text',
+          description: `Some of your visitors cannot see images, 
+            be they blind, color-blind, low-sighted; 
+            alternative text is of great help for those 
+            people that can rely on it to have a good idea of 
+            what\'s on your page.`,
+          options: {
+            isHighlighted: true
+          }
+        }
+      ]
     }
   ]
 }
