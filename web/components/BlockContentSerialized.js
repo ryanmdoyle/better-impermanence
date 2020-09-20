@@ -29,7 +29,6 @@ const serializers = {
   },
   types: {
     image: ({ node }) => {
-      // console.log(props)
       const { url, originalFilename } = node?.asset;
       return (
         <div css={imageContainer}>

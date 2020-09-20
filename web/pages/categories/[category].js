@@ -1,12 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { getPostsByCategory, getCategories, getAuthors } from '../../lib/queries';
+import Post from '../../components/Post';
+import { getCategoryPosts, getCategories, getAuthors } from '../../lib/queries';
 
-
-const category = ({ posts, categories, context, author }) => {
-  const titleString = context.category
-  const title = titleString.charAt(0).toUpperCase() + titleString.slice(1);
+const category = ({ category, categories, context, author }) => {
+  const { title, posts } = category[0];
   return (
     <div>
       <Head>
@@ -15,16 +14,19 @@ const category = ({ posts, categories, context, author }) => {
       </Head>
       <h2>{title}</h2>
       {posts.length === 0 && <p>Currently there are no posts in the {title} category!</p>}
+      {posts && posts.map(post => (
+        <Post post={post} key={post._id} />
+      ))}
     </div>
   );
 };
 
 export async function getStaticProps(context) {
-  const posts = await getPostsByCategory(context.params.slug)
+  const category = await getCategoryPosts(context.params.slug)
   const categories = await getCategories()
   const authors = await getAuthors();
   return {
-    props: { posts: posts, categories: categories, context: context.params, author: authors[0], }
+    props: { category: category, categories: categories, context: context.params, author: authors[0], }
   }
 }
 

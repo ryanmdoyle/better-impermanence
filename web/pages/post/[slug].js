@@ -3,20 +3,12 @@ import Head from 'next/head'
 
 import BlogDate from '../../components/styled/BlogDate';
 import BlockContentSerialized from '../../components/BlockContentSerialized';
+import Post from '../../components/Post';
 import { getPostBySlug, getPosts, getCategories, getAuthors } from '../../lib/queries';
 
 const post = ({ post, categories, author }) => {
-  const { title, publishedAt, body } = post
   return (
-    <div>
-      <Head>
-        <title>Better Impermanence - {title}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <h2>{title}</h2>
-      <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
-      <BlockContentSerialized blocks={body} />
-    </div>
+    <Post post={post} />
   );
 };
 

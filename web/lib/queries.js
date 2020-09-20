@@ -1,7 +1,10 @@
 import client from './sanity';
 
 export const getPostBySlug = async (slug) => {
-  const post = `*[_type == "post" && slug.current == "${slug}"]`
+  const post = `*[_type == "post" && slug.current == "${slug}"]{
+    ...,
+    categories[]->{title}
+  }`
   return await client.fetch(post)
 }
 
@@ -10,9 +13,16 @@ export const getPosts = async () => {
   return await client.fetch(posts)
 }
 
-export const getPostsByCategory = async (title) => {
-  const posts = `*[_type == "post" && category == ${title}]`
-  return await client.fetch(posts)
+export const getCategoryPosts = async (title) => {
+  const query = `*[_type == "category" && title == "Politics"]{
+    ...,
+    "posts": *[_type == "post" && references(^._id)]{
+      ...,
+      categories[]->{title},
+    }
+  }`
+  const params = { categoryTitle: `"${title}"` }
+  return await client.fetch(query, params)
 }
 
 export const getCategory = async (title) => {

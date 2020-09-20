@@ -5,6 +5,7 @@ import BlockContentSerialized from '../components/BlockContentSerialized';
 import BlogDate from '../components/styled/BlogDate';
 import BlogCategories from '../components/styled/BlogCategories';
 import PostPreview from '../components/PostPreview';
+import Post from '../components/Post';
 import { getCategories, getPosts, getAuthors } from '../lib/queries';
 
 export default function Home(props) {
@@ -27,14 +28,7 @@ export default function Home(props) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {fullPosts.map(post => (
-        <div key={post._id}>
-          <Link href={`/post/${post.slug.current}`}>
-            <h2>{post.title}</h2>
-          </Link>
-          <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
-          <BlogCategories categories={post.categories} />
-          <BlockContentSerialized blocks={post.body} />
-        </div>
+        <Post post={post} key={post._id} />
       ))}
       {previewPosts && previewPosts.map(post => (
         <PostPreview post={post} />
