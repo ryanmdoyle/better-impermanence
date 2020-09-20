@@ -6,7 +6,7 @@ export const getPostBySlug = async (slug) => {
 }
 
 export const getPosts = async () => {
-  const posts = '*[_type == "post"]'
+  const posts = '*[_type == "post"]{..., categories[]->{title}}'
   return await client.fetch(posts)
 }
 

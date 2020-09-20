@@ -18,7 +18,7 @@ export default function Home(props) {
       previewPosts.push(post);
     }
   })
-
+  console.log(posts)
   return (
     <div>
       <Head>
