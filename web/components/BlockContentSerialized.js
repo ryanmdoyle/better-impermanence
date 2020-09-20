@@ -45,6 +45,13 @@ const serializers = {
           </div>
         </div>
       )
+    },
+    block: (props) => {
+      // console.log(props)
+      if (props.node.style == 'centered') {
+        return <p css={css`text-align: center;`}>{props.children}</p>
+      }
+      return BlockContent.defaultSerializers.types.block(props)
     }
   }
 }
