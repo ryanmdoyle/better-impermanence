@@ -9,11 +9,11 @@ const BlogCategories = ({ categories }) => {
       {categories.map((category, index) => {
         if (index !== categories.length - 1) {
           return (
-            <span><CategoryWithLink category={category.title}>{category.title}</CategoryWithLink>, </span>
+            <span key={index}><CategoryWithLink category={category.title}>{category.title}</CategoryWithLink>, </span>
           )
         }
         return (
-          <CategoryWithLink category={category.title}>{category.title}</CategoryWithLink>
+          <CategoryWithLink category={category.title} key={index}>{category.title}</CategoryWithLink>
         )
       })}
     </span>
