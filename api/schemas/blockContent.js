@@ -1,3 +1,4 @@
+import React from 'react'
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -8,6 +9,10 @@
  *    type: 'blockContent'
  *  }
  */
+const centeredText = props => (
+  <p style={{ textAlign: 'center' }}>{props.children}</p>
+)
+
 export default {
   title: 'Block Content',
   name: 'blockContent',
@@ -27,7 +32,13 @@ export default {
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
         { title: 'Quote', value: 'blockquote' },
-        { title: 'Centered', value: 'centered' }
+        {
+          title: 'Centered',
+          value: 'centered',
+          blockEditor: {
+            render: centeredText
+          }
+        }
       ],
       lists: [
         { title: 'Bullet', value: 'bullet' },
