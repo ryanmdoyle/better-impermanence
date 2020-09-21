@@ -26,14 +26,6 @@ const serializers = {
         <a href={href} target="_blank" rel="noopener">{children}</a>
         : <a href={href}>{children}</a>
     },
-    "c5daa9e645e4": () => null,
-    "3cebc10a5360": () => null,
-    "aee3945e09d5": () => null,
-    "a72576b13bd4": () => null,
-    "f317da9c391e": () => null,
-    "29fc21b51b96": () => null,
-    "445b2fb2a1db": () => null,
-    "65f500bb7fb7": () => null,
   },
   types: {
     image: ({ node }) => {
