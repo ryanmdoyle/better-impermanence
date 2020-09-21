@@ -12,7 +12,7 @@ const Post = ({ post }) => {
         <h3>{post.title}</h3>
       </Link>
       <BlogDate>{new Date(post.publishedAt).toLocaleDateString()}</BlogDate>
-      <BlogCategories categories={post.categories} />
+      {/* <BlogCategories categories={post.categories} /> */}
       <BlockContentSerialized blocks={post.body} />
     </div>
   );
