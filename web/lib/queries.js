@@ -19,15 +19,16 @@ export const getPosts = async () => {
 }
 
 export const getCategoryPosts = async (title) => {
-  const query = `*[_type == "category" && title == "Politics"]{
+  const queryTitle = title.charAt(0).toUpperCase() + title.slice(1)
+  const query = `*[_type == "category" && title == '${queryTitle}']{
     ...,
     "posts": *[_type == "post" && references(^._id)]{
       ...,
-      categories[]{..., "asset":asset->},
+      body[]{..., "asset": asset->},
+      categories[]->{..., title, "asset":asset->},
     }
   }`
-  const params = { categoryTitle: `"${title}"` }
-  return await client.fetch(query, params)
+  return await client.fetch(query)
 }
 
 export const getCategory = async (title) => {

@@ -1,14 +1,18 @@
 import React from 'react';
 import Head from 'next/head'
 
-import BlogDate from '../../components/styled/BlogDate';
-import BlockContentSerialized from '../../components/BlockContentSerialized';
 import Post from '../../components/Post';
 import { getPostBySlug, getPosts, getCategories, getAuthors } from '../../lib/queries';
 
 const post = ({ post, categories, author }) => {
   return (
-    <Post post={post} />
+    <>
+      <Head>
+        <title>Better Impermanence - {post.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Post post={post} />
+    </>
   );
 };
 
