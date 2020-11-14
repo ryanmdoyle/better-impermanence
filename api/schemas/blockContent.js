@@ -48,7 +48,7 @@ export default {
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
-        decorators: [{ title: 'Strong', value: 'strong' }, { title: 'Emphasis', value: 'em' }],
+        decorators: [{ title: 'Strong', value: 'strong' }, { title: 'Emphasis', value: 'em' }, { title: 'Underline', value: 'underline' }],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
