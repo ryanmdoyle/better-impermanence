@@ -1,9 +1,5 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
-import BlockContentSerialized from '../components/BlockContentSerialized';
-import BlogDate from '../components/styled/BlogDate';
-import BlogCategories from '../components/styled/BlogCategories';
 import PostPreview from '../components/PostPreview';
 import Post from '../components/Post';
 import { getCategories, getPosts, getAuthors } from '../lib/queries';
@@ -12,6 +8,13 @@ export default function Home(props) {
   const { posts } = props;
   const fullPosts = []; // first 3
   const previewPosts = []; // next 7
+
+  //make sure posts are sorted by publish Date
+  posts.sort((a, b) => {
+    return new Date(b.publishedAt) - new Date(a.publishedAt)
+  })
+
+  // create array for full posts & partial posts
   posts.forEach((post, index) => {
     if (index <= 2) {
       fullPosts.push(post);
