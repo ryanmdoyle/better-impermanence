@@ -10,7 +10,7 @@ export const getPostBySlug = async (slug) => {
 }
 
 export const getPosts = async () => {
-  const posts = `*[_type == "post"]{
+  const posts = `*[_type == "post"] | order(publishedAt desc) {
     ..., 
     categories[]->{title},
     body[]{..., "asset": asset->},
@@ -22,7 +22,7 @@ export const getCategoryPosts = async (title) => {
   const queryTitle = title.charAt(0).toUpperCase() + title.slice(1)
   const query = `*[_type == "category" && title == '${queryTitle}']{
     ...,
-    "posts": *[_type == "post" && references(^._id)]{
+    "posts": *[_type == "post" && references(^._id)] | order(publishedAt desc) {
       ...,
       body[]{..., "asset": asset->},
       categories[]->{..., title, "asset":asset->},
